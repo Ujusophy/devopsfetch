@@ -1,23 +1,15 @@
 # Devopsfetch 
 This is a monitoring tool that retrieves and logs various system activities such as active ports, Docker containers, Nginx configurations, and user information. It also supports time-based activity queries and logging to a file with rotation.
-<-->
-step-by-step guide to install and configure DevOpsFetch:
 
-Installation Guide for DevOpsFetch
+# Step-by-step guide to install and configure DevOpsFetch
 1. Install Dependencies
-Ensure your system has the necessary dependencies installed. These include bash, curl, and docker. Run the following commands:
-
-bash
-Copy code
+Ensure your system has the necessary dependencies installed. These include bash, curl, and docker. 
+'''
 sudo apt update
 sudo apt install -y bash curl docker.io
-2. Download and Install DevOpsFetch Script
-Download the Script:
-
-Save the devopsfetch.sh script to a directory where you keep executable scripts, such as /usr/local/bin. Use curl or wget to download it:
-
-bash
-Copy code
+'''
+3. Download and Install DevOpsFetch Script
+- Save the devopsfetch.sh script to a directory where you keep executable scripts, such as /usr/local/bin. Use curl or wget to download it:
 sudo curl -o /usr/local/bin/devopsfetch.sh https://example.com/devopsfetch.sh
 Replace https://example.com/devopsfetch.sh with the actual URL where the script is hosted.
 
