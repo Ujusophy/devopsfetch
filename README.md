@@ -7,6 +7,7 @@ Ensure your system has the necessary dependencies installed. These include bash,
 ```bash
 sudo apt update
 sudo apt install -y bash curl docker.io
+```
 3. Download and Install DevOpsFetch Script
 - Save the devopsfetch.sh script to a directory where you keep executable scripts, such as /usr/local/bin. Use curl or wget to download it:
 sudo curl -o /usr/local/bin/devopsfetch.sh https://example.com/devopsfetch.sh
