@@ -1,7 +1,7 @@
 # Devopsfetch 
 This is a monitoring tool that retrieves and logs various system activities such as active ports, Docker containers, Nginx configurations, and user information. It also supports time-based activity queries and logging to a file with rotation.
 
-# Step-by-step guide to install and configure DevOpsFetch
+# Installation and configuration of DevOpsFetch
 1. Install Dependencies
 Ensure your system has the necessary dependencies installed. These include bash, curl, and docker. 
 ```bash
@@ -76,7 +76,7 @@ You have successfully installed DevOpsFetch and configured it to run as a system
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Logging Mechanism and How to Retrieve Logs
+# Logging Mechanism and How to Retrieve Logs
 The devopsfetch script includes a logging mechanism that logs activities and outputs to a log file located at /var/log/devopsfetch.log. This log file records each time a command is run, capturing the output of the script and any errors that occur during its execution. The log rotation is handled using the logrotate utility to ensure that the log file does not grow too large and remains manageable.The configuration file for logrotate is typically found at /etc/logrotate.d/devopsfetch.
 
 - View the Latest Logs
