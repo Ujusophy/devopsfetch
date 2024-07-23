@@ -13,7 +13,7 @@ sudo apt install -y bash curl docker.io
 ```
 sudo curl -o /usr/local/bin/devopsfetch.sh https://example.com/devopsfetch.sh
 ```
-- Replace https://script.com/devopsfetch.sh with the actual URL where the script is hosted.
+- Replace https://example.com/devopsfetch.sh with the actual URL where the script is hosted.
 
 4. Make the Script Executable
 
