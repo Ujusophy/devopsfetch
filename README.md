@@ -67,7 +67,7 @@ You have successfully installed DevOpsFetch and configured it to run as a system
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Usage Examples for Each Command-Line Flag
--  -p, --ports          List active ports and services
+-  -p, --port          List active ports and services
 -  -d, --docker         List Docker images and containers
 -  -n, --nginx          List Nginx domains and ports
 -  -u, --users          List users and their last login times
