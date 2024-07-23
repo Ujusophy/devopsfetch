@@ -2,61 +2,35 @@
 This is a monitoring tool that retrieves and logs various system activities such as active ports, Docker containers, Nginx configurations, and user information. It also supports time-based activity queries and logging to a file with rotation.
 
 # Installation and configuration of DevOpsFetch
-1. Install Dependencies
-Ensure your system has the necessary dependencies installed. These include bash, curl, and docker. 
+1. Ensure your system has the necessary dependencies installed. These include bash, curl, and docker. 
 ```bash
 sudo apt update
 sudo apt install -y bash curl docker.io
 ```
-3. Download and Install DevOpsFetch Script
+2. Download and Install DevOpsFetch Script
 - Save the devopsfetch.sh script to a directory where you keep executable scripts, such as /usr/local/bin. Use curl or wget to download it.
 ```
 sudo curl -o /usr/local/bin/devopsfetch.sh https://example.com/devopsfetch.sh
 ```
 - Replace https://example.com/devopsfetch.sh with the actual URL where the script is hosted.
 
-4. Make the Script Executable
-
-- Set the executable permission for the script:
-
+4. Run the Installation Script 'install.sh'
 ```bash
-sudo chmod +x /usr/local/bin/devopsfetch.sh
+sudo ./install.sh
 ```
-5. Set Up Systemd Service
-- Create a new file /etc/systemd/system/devopsfetch.service with the following content
-```bash
-[Unit]
-Description=DevOpsFetch Monitoring Service
-After=network.target
+This script performs the following actions:
 
-[Service]
-ExecStart=/usr/local/bin/devopsfetch.sh -p
-Restart=always
-User=vagrant
-
-[Install]
-WantedBy=multi-user.target
-```
-This configuration ensures that DevOpsFetch starts after the network is available and restarts automatically if it fails.
-
-6. Reload Systemd and Enable Service:
-
-- After creating the service file, reload the systemd configuration and enable the service to start on boot:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable devopsfetch.service
-sudo systemctl start devopsfetch.service
-```
-7. Verify the Installation
-- Check Service Status
+- Updates the package list and installs essential dependencies (curl, vim, and logrotate).
+- Copies the devopsfetch.sh script to /usr/local/bin and makes it executable.
+- Creates a systemd service for devopsfetch, ensuring it starts on boot and restarts if it fails.
+- Configures log rotation for devopsfetch logs to ensure they are managed effectively.
+5. Verify the Installation
 ```bash
 sudo systemctl status devopsfetch.service
 ```
-You should see an output indicating that the service is active and running.
-
-8. Check for Errors:
-
+6. Verify Log Files:
+- Log files are located at /var/log/devopsfetch.log.
+7. Check for Errors:
 - If there are issues, you can check the logs to diagnose problems:
 
 ```bash
@@ -73,7 +47,35 @@ You have successfully installed DevOpsFetch and configured it to run as a system
 -  -u, --users          List users and their last login times
 -  -t, --time           Display activities within a specified time range
 -  -h, --help           Show this help message
-
+List Active Ports and Services:
+```bash
+devopsfetch -p
+```
+For detailed information about a specific port:
+```bash
+devopsfetch -p <port_number>
+```
+List Docker Images and Containers:
+```bash
+devopsfetch -d
+```
+List Nginx Domains and Configurations:
+```bash
+devopsfetch -n <domain>
+```
+List Users and Their Details:
+```bash
+devopsfetch -u <username>
+```
+Display Activities Within a Time Range:
+```bash
+devopsfetch -t <date>
+```
+- format: YYYY-MM-DD
+Show Help Message:
+```bash
+devopsfetch -h
+```
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Logging Mechanism and How to Retrieve Logs
