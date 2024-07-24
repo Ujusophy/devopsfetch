@@ -2,22 +2,22 @@
 
 # Function to display all active ports and services
 display_ports() {
-    printf "%-15s | %-15s | %-15s\n" "User" "Port" "Service"
-    printf "%-15s | %-15s | %-15s\n" "--------------" "--------------" "--------------"
+    printf "%-25s | %-25s | %-25s\n" "User" "Port" "Service"
+    printf "%-25s | %-25s | %-25s\n" "--------------" "--------------" "--------------"
     
     netstat -tuln | awk 'NR>2 {print $7, $4, $6}' | while IFS=" " read -r user port service; do
-        printf "%-15s | %-15s | %-15s\n" "$user" "$port" "$service"
+        printf "%-25s | %-25s | %-25s\n" "$user" "$port" "$service"
     done
 }
 
 # Function to provide detailed information about a specific port
 display_port_info() {
     local port=$1
-    printf "%-15s | %-15s | %-15s\n" "User" "Port" "Service"
-    printf "%-15s | %-15s | %-15s\n" "--------------" "--------------" "--------------"
+    printf "%-25s | %-25s | %-25s\n" "User" "Port" "Service"
+    printf "%-25s | %-25s | %-25s\n" "--------------" "--------------" "--------------"
     
     netstat -tuln | awk -v port="$port" '$4 ~ ":"port {print $7, $4, $6}' | while IFS=" " read -r user port service; do
-        printf "%-15s | %-15s | %-15s\n" "$user" "$port" "$service"
+        printf "%-25s | %-25s | %-25s\n" "$user" "$port" "$service"
     done
 }
 
@@ -183,5 +183,5 @@ done
 
 # If no arguments provided, show usage
 if [[ "$#" -eq 0 ]]; then
-    echo "Usage: $0 [-n|--nginx [domain]] [-p|--port [port_number]] [-u|--users [username]] [-d|--docker [container_id]] [-t|--time YYYY-MM-DD]"
+    echo "Usage: $0 [-n|--nginx [domain]] [-p|--port [port_number]] [-u|--users [username]] [-d|--docker [container_id]] [-t|--time YYYY-MM-DD] [-h|--help]"
 fi
